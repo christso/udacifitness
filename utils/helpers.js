@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, AsyncStorage } from "react-native";
 import {
   FontAwesome,
   MaterialIcons,
   MaterialCommunityIcons
 } from "@expo/vector-icons";
+import * as Permissions from 'expo-permissions';
+import { Notifications } from 'expo';
 import { red, orange, blue, lightPurp, pink, white } from './colors'
 const NOTIFICATION_KEY = 'UdaciFitness:notifications'
 
@@ -143,6 +145,11 @@ export function timeToString(time = Date.now()) {
   const date = new Date(time)
   const todayUTC = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()))
   return todayUTC.toISOString().split('T')[0]
+}
+
+export function clearLocalNotification() {
+  return AsyncStorage.removeItem(NOTIFICATION_KEY)
+  .then(Notifications.cancelAllScheduledNotificationsAsync);
 }
 
 function createNotification() {
