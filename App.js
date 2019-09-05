@@ -6,10 +6,10 @@ import { Provider } from 'react-redux';
 import reducer from './reducers';
 import History from './components/History';
 import { 
-  createBottomTabNavigator, 
-  createStackNavigator,
   createAppContainer
 } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createStackNavigator } from 'react-navigation-stack';
 import { purple, white } from './utils/colors'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import Constants from 'expo-constants';

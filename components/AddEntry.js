@@ -94,7 +94,7 @@ class AddEntry extends Component {
 
     // Route to Home
     this.toHome();
-    // Update "DB"
+    // Update "DB"-
     
     // Route to Home
     removeEntry(key);
